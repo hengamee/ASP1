@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WordsDoc.Services;
 
 namespace WordsDoc.Models
 {
@@ -15,7 +16,7 @@ namespace WordsDoc.Models
         {
         }
 
-        public DbSet<Words> Words { get; set; }
+        public DbSet<DefinisionResponse> DefinisionResponses { get; set; }
     }
 
 

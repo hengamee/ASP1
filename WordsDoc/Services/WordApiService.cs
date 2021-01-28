@@ -7,7 +7,8 @@ using System.Net.Http.Json;
 using System.Threading;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-
+using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace WordsDoc.Services
 {
@@ -40,7 +41,7 @@ namespace WordsDoc.Services
         public string Word { get; set; }
         public DefinisionItem[] Definitions { get; set; }
     }
-
+    [Keyless]
     public class DefinisionItem
     {
         public string Definition { get; set; }

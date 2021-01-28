@@ -1,3 +1,4 @@
+using System.Collections;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +7,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using WordsDoc.Models;
 using WordsDoc.Services;
+using WordsDoc.Models.Repositories;
+using Newtonsoft.Json.Serialization;
 
 namespace WordsDoc
 {
@@ -22,7 +25,7 @@ namespace WordsDoc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WordsContext>(options =>
-                                               options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase")));
+                                               options.UseSqlServer(Configuration.GetConnectionString("WDatabase")));
             services.AddControllers();
 
 
@@ -30,6 +33,9 @@ namespace WordsDoc
             {
                 builder.BaseAddress = new System.Uri("https://wordsapiv1.p.mashape.com/words/");
             });
+           
+                       //using Dependency Injection
+            services.AddSingleton<IWordsRepository, WordsRepository>();
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
