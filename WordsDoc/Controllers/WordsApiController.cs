@@ -12,31 +12,58 @@ namespace WordsDoc.Controllers
     [ApiController]
     public class WordsApiController : ControllerBase
     {
-        private readonly IWordsRepository _wordsRepository;
-        public WordsApiController(IWordsRepository wordsRepository)
+        public IWordsRepository WordsRepo { get; set; }
+        public WordsApiController(IWordsRepository _repo)
         {
-            _wordsRepository = wordsRepository;
+            WordsRepo = _repo;
         }
         [HttpGet]
-        public IActionResult Get()
+        public IEnumerable<DefinisionResponse> GetAll()
         {
-            var records = _wordsRepository.Get();
-            if (records != null)
-                if (records.Count > 0)
-                    return Ok(records);
-            return NotFound();
+            
+            return WordsRepo.GetAll();
         }
-        [HttpGet("{id}", Name = "Get")]
-        public IActionResult Get(string word)
+        [HttpGet("{id}", Name = "GetDefinitionResponse")]
+        public IActionResult GetById(string id)
         {
-            var data = _wordsRepository.GetByWord(word);
-            if (data == null)
-                return Ok(data);
+            var item = WordsRepo.Find(id);
+            if (item == null)
+            {
                 return NotFound();
             }
-           
+                return new ObjectResult(item);
+            }
+           [HttpPost]
+           public IActionResult Create([FromBody] DefinisionResponse item)
+        { 
+            if(item==null){
+                return BadRequest();
+            }
+            WordsRepo.Add(item);
+            return CreatedAtRoute("GetDefinitionResponse", new { Controller = "WordsApi", id = item.Definitions }, item);
         }
-       
 
+        [HttpPut("{id}")]
+        public IActionResult Update(string id, [FromBody] DefinisionResponse item)
+        {
+            if (item == null)
+            {
+                return BadRequest();
+            }
+            var contactObj = WordsRepo.Find(id);
+            if (contactObj == null)
+            {
+                return NotFound();
+            }
+            WordsRepo.Update(item);
+            return new NoContentResult();
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete(string id)
+        {
+            WordsRepo.Remove(id);
+        }
+    }
 
 }

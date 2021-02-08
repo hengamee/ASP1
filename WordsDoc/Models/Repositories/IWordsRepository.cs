@@ -8,7 +8,11 @@ namespace WordsDoc.Models.Repositories
 {
     public interface IWordsRepository
     {
-        List<DefinisionResponse> Get();
-        DefinisionResponse GetByWord(string Word);
+        void Add(DefinisionResponse item);
+        IEnumerable<DefinisionResponse> GetAll();
+        DefinisionResponse Find(string Key);
+        void Remove(string Id);
+        void Update(DefinisionResponse item);
+
     }
 }
