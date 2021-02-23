@@ -112,16 +112,6 @@ C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\ref\WordsD
 C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.pdb
 C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.genruntimeconfig.cache
 C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\bin\Debug\net5.0\WordsDoc.Views.dll
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\bin\Debug\net5.0\WordsDoc.Views.pdb
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.RazorAssemblyInfo.cache
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.RazorAssemblyInfo.cs
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.TagHelpers.input.cache
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.TagHelpers.output.cache
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.RazorCoreGenerate.cache
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\Razor\Views\Words.cshtml.g.cs
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.RazorTargetAssemblyInfo.cs
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\WordsDoc.Views.pdb
-C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\obj\Debug\net5.0\Razor\Views\SearchWords.cshtml.g.cs
 C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\bin\Debug\net5.0\Microsoft.Data.Sqlite.dll
 C:\Users\h_pouraskari\source\repos\WordsDoc\WordsDoc\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll

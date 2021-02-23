@@ -11,10 +11,10 @@ namespace WordsDoc.Models
     
         public class DefinisionResponse
         {
-            public int Id { get; set; }
-            [JsonPropertyName("word")]
-            public string Word { get; set; }
-            public DefinisionItem[] Definitions { get; set; }
+        public int Id { get; set; }
+        public string WordId { get; set; }
+        public DefinisionItem[] Definitions { get; set; }
+        public virtual ICollection<DefinisionItem> DefinisionItems { get; set; }
         }
     }
 

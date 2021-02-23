@@ -8,11 +8,14 @@ namespace WordsDoc.Models.Repositories
 {
     public interface IWordsRepository
     {
-        void Add(DefinisionResponse item);
-        IEnumerable<DefinisionResponse> GetAll();
-        DefinisionResponse Find(string Key);
-        void Remove(string Id);
-        void Update(DefinisionResponse item);
-
+        IEnumerable<DefinisionResponse> GetDefinisionResponses();
+        DefinisionResponse GetDefinisionResponseByID(int wordId);
+        void InsertDefinitionResponse(DefinisionResponse definisionResponse);
+        void DeleteDefinitionResponce(int wordID);
+        void UpdateDefinitionResponce(DefinisionResponse definisionResponse);
+        void Save();
+     
+      
+        
     }
 }

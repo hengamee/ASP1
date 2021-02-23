@@ -18,51 +18,36 @@ namespace WordsDoc.Controllers
             WordsRepo = _repo;
         }
         [HttpGet]
-        public IEnumerable<DefinisionResponse> GetAll()
+        public IEnumerable<DefinisionResponse> GetDefinitionResponse()
         {
             
-            return WordsRepo.GetAll();
+            return WordsRepo.GetDefinisionResponses();
         }
         [HttpGet("{id}", Name = "GetDefinitionResponse")]
-        public IActionResult GetById(string id)
+        public IActionResult GetById(int Id)
         {
-            var item = WordsRepo.Find(id);
+            var item = WordsRepo.GetDefinisionResponseByID(Id);
             if (item == null)
             {
                 return NotFound();
             }
-                return new ObjectResult(item);
-            }
+            return new ObjectResult(item);
+        }
            [HttpPost]
            public IActionResult Create([FromBody] DefinisionResponse item)
         { 
             if(item==null){
                 return BadRequest();
             }
-            WordsRepo.Add(item);
+            WordsRepo.InsertDefinitionResponse(item);
             return CreatedAtRoute("GetDefinitionResponse", new { Controller = "WordsApi", id = item.Definitions }, item);
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Update(string id, [FromBody] DefinisionResponse item)
-        {
-            if (item == null)
-            {
-                return BadRequest();
-            }
-            var contactObj = WordsRepo.Find(id);
-            if (contactObj == null)
-            {
-                return NotFound();
-            }
-            WordsRepo.Update(item);
-            return new NoContentResult();
-        }
-
         [HttpDelete("{id}")]
-        public void Delete(string id)
+        public IActionResult Delete(int wordId)
         {
-            WordsRepo.Remove(id);
+            WordsRepo.DeleteDefinitionResponce(wordId);
+            return new NoContentResult();
         }
     }
 

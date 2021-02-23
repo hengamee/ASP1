@@ -38,7 +38,7 @@ namespace WordsDoc.Services
     public class DefinisionResponse
     {
         [JsonPropertyName("word")]
-        public string Word { get; set; }
+        public string WordId { get; set; }
         public DefinisionItem[] Definitions { get; set; }
     }
     [Keyless]

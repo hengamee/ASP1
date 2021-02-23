@@ -17,6 +17,7 @@ namespace WordsDoc.Models
         }
 
         public DbSet<DefinisionResponse> DefinisionResponses { get; set; }
+        public DbSet<DefinisionItem> DefinisionItems { get; set; }
     }
 
 

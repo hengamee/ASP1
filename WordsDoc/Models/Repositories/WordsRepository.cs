@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,42 +9,43 @@ namespace WordsDoc.Models.Repositories
 {
     public class WordsRepository : IWordsRepository
     {
-        static List<DefinisionResponse> DefinitionResponseList = new List<DefinisionResponse>();
-        public void Add(DefinisionResponse item)
+        private WordsContext context;
+        public WordsRepository(WordsContext context)
         {
-            DefinitionResponseList.Add(item);
-        }
-        public DefinisionResponse Find(string key)
-        {
-            return DefinitionResponseList
-                .Where(e => e.Definitions.Equals(key))
-                .SingleOrDefault();
+            this.context = context;
         }
 
-        public IEnumerable<DefinisionResponse> GetAll()
+        public void DeleteDefinitionResponce(int wordID)
         {
-            return DefinitionResponseList;
+            DefinisionResponse definisionResponse = context.DefinisionResponses.Find(wordID);
+            context.DefinisionResponses.Remove(definisionResponse);
         }
 
-        public void Remove(string Id)
+        public DefinisionResponse GetDefinisionResponseByID(int wordId)
         {
-            var itemToRemove = DefinitionResponseList.SingleOrDefault(r => r.Word == Id);
-            if (itemToRemove != null)
-                DefinitionResponseList.Remove(itemToRemove);
+            return context.DefinisionResponses.Find(wordId);
         }
 
-        public void Update(DefinisionResponse item)
+        public IEnumerable<DefinisionResponse> GetDefinisionResponses()
         {
-            var itemToUpdate = DefinitionResponseList.SingleOrDefault(r => r.Word == item.Word);
-            if (itemToUpdate !=null)
-            { 
-                itemToUpdate.Word = item.Word;
-                itemToUpdate.Definitions = item.Definitions;
+            return context.DefinisionResponses.ToList();
+        }
 
-                    }
+        public void InsertDefinitionResponse(DefinisionResponse definisionResponse) => context.DefinisionResponses.Add(definisionResponse);
+
+        public void Save()
+        {
+            context.SaveChanges();
+        }
+
+        public void UpdateDefinitionResponce(DefinisionResponse definisionResponse)
+        {
+            context.Entry(definisionResponse).State = EntityState.Modified;
         }
 
        
     }
+}
+        
        
 
