@@ -10,8 +10,8 @@ using WordsDoc.Models;
 namespace WordsDoc.Migrations
 {
     [DbContext(typeof(WordsContext))]
-    [Migration("20210224053705_init")]
-    partial class init
+    [Migration("20210301071829_init4")]
+    partial class init4
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

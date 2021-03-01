@@ -38,12 +38,13 @@ namespace WordsDoc.Services
     public class DefinisionResponse
     {
         [JsonPropertyName("word")]
+        public int Id { get; set; }
         public string WordId { get; set; }
         public DefinisionItem[] Definitions { get; set; }
     }
-    [Keyless]
     public class DefinisionItem
     {
+        public int Id { get; set; }
         public string Definition { get; set; }
         public string PartOfSpeech { get; set; }
     }

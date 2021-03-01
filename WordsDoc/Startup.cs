@@ -27,7 +27,7 @@ namespace WordsDoc
             services.AddDbContext<WordsContext>(options =>
                                                options.UseSqlServer(Configuration.GetConnectionString("WDatabase")));
             services.AddControllers();
-
+            
 
             services.AddHttpClient<WordApiService>(builder =>
             {
@@ -35,7 +35,7 @@ namespace WordsDoc
             });
            
                        //using Dependency Injection
-            services.AddSingleton<IWordsRepository, WordsRepository>();
+            services.AddTransient<IWordsRepository, WordsRepository>();
         }
         
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
